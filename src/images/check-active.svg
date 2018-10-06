@@ -1,0 +1,16 @@
+
+<svg width="30px" height="25px" viewBox="0 0 30 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1000.000000, -313.000000)" fill="#D4AF37" fill-rule="nonzero">
+            <g id="menu-item" transform="translate(410.000000, 261.000000)">
+                <g id="check" transform="translate(590.000000, 52.000000)">
+                    <path d="M14.9999587,25 C6.72928862,25 0,19.3927261 0,12.5000689 C0,5.60734277 6.72928862,0 14.9999587,0 C23.2707114,0 30,5.60734277 30,12.5000689 C30,19.3927261 23.2707114,25 14.9999587,25 Z M14.9999587,0.806420512 C7.26230976,0.806420512 0.967701949,6.05235467 0.967701949,12.5000689 C0.967701949,18.9477831 7.26230976,24.1936484 14.9999587,24.1936484 C22.7376902,24.1936484 29.0322981,18.9477831 29.0322981,12.5000689 C29.0322981,6.05235467 22.7376902,0.806420512 14.9999587,0.806420512 Z" id="Shape"></path>
+                    <polygon id="Shape" points="12.2867305 18.3333333 7 13.6907445 7.67460014 13.09841 12.2867305 17.1485213 22.3253999 8.33333333 23 8.92566783"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

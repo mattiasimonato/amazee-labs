@@ -6,7 +6,7 @@ const Header = (props) => {
     <header className="header container">
       <div className="row align-items-center">
         <div className="header__logo col-md-6">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         <div className="header__logo col-md-6 text-right">
           <span className="header__label">Chef:</span>

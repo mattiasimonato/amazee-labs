@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Allergies from '../components/Allergies.js'
+import check from '../images/check.svg';
 
 class Course extends Component {
   render() {
@@ -13,7 +14,9 @@ class Course extends Component {
 
           <Allergies/>
         </div>
-        <div className="course__wrap-icon">check</div>
+        <div className="course__wrap-icon">
+          <img src={check} alt="check inactive" />
+        </div>
       </div>
     );
   }
