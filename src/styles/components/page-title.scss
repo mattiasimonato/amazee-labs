@@ -1,0 +1,15 @@
+.page-title {
+  &__primary {
+    font-family: $font-secondary;
+    letter-spacing: $baseline;
+    text-transform: uppercase;
+    color: $primary;
+    font-size: $baseline * 6;
+  }
+
+  &__secondary {
+    letter-spacing: $baseline / 2;
+    text-transform: uppercase;
+    font-size: $baseline * 3;
+  }
+}
