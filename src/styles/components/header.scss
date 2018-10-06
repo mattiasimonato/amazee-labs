@@ -1,0 +1,9 @@
+.header {
+  margin: $baseline * 4 auto;
+
+  &__label {
+    display: block;
+    margin: 0;
+    line-height: 1;
+  }
+}
