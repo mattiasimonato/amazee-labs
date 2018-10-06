@@ -1,34 +1,17 @@
-$color: #333;
+//font
+@import url('https://fonts.googleapis.com/css?family=Roboto|Slabo+27px');
 
-.App {
-  text-align: center;
-}
+// variables
+@import './variables.scss';
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
+// default
+@import './default.scss';
 
-.App-header {
-  background-color: $color;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+// components
+@import './components/header.scss';
+@import './components/page-title.scss';
+@import './components/main-container.scss';
+@import './components/menu.scss';
+@import './components/course.scss';
+@import './components/allergies.scss';
+@import './components/footer.scss';
