@@ -7,12 +7,16 @@ class Course extends Component {
   render() {
     return (
       <div className="course">
-        <div className="course__wrap-img">image</div>
+        <div className="course__wrap-image">
+          <img src={this.props.course.image} className="course__image" alt={this.props.course.title}/>
+        </div>
         <div className="course__content">
-          <h5 className="course__name">Mixed Greens with Poached Eggs, Hazelnuts and Spices</h5>
-          <p className="course__description">What could be more summery than grilled peppers and squash heaped on toasted country bread that's slathered with fresh basil pesto?</p>
+          <h5 className="course__name">{this.props.course.title}</h5>
+          <p className="course__description">
+            {this.props.course.description}
+          </p>
 
-          <Allergies/>
+          <Allergies allergies={this.props.course.allery}/>
         </div>
         <div className="course__wrap-icon">
           <img src={check} alt="check inactive" />
