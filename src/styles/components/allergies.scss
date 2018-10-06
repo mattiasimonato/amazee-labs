@@ -1,0 +1,21 @@
+.allergies {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    display: inline-block;
+    margin-left: $baseline * 3;
+    font-size: 13px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &--asterisk {
+      &::before {
+        content: '*'
+      }
+    }
+  }
+}
