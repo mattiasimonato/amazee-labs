@@ -75,7 +75,6 @@ class Footer extends Component {
             </div>
             <div className="col-md-4 text-center">
 
-                <button className="btn btn-outline-danger button--primary mr-2" disabled>clear</button>
                 <button className="btn btn-primary button--primary button" disabled>confirm</button>
 
             </div>

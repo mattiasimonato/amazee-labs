@@ -1,2 +1,4 @@
 export const INCREASE_PAGE = "INCREASE_PAGE"
 export const DECREASE_PAGE = "DECREASE_PAGE"
+export const ADD_COURSE = "ADD_COURSE"
+export const REMOVE_COURSE = "REMOVE_COURSE"

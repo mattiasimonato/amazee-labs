@@ -283,6 +283,8 @@ const reducer = (state = initialState, action) => {
   switch(action.type) {
     case actionType.INCREASE_PAGE : return {...state, courseTypeSelected: action.courseTypeSelected}
     case actionType.DECREASE_PAGE : return {...state, courseTypeSelected: action.courseTypeSelected}
+    case actionType.ADD_COURSE : return {...state, selectedCourses: [...state.selectedCourses, action.selectedCourse]}
+    case actionType.REMOVE_COURSE : return {...state, selectedCourses: [...state.selectedCourses.slice(0, action.index), ...state.selectedCourses.slice(action.index + 1)]}
     default : return state;
   }
 }

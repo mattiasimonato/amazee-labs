@@ -13,3 +13,17 @@ export const decreasePage = (page) => {
     courseTypeSelected: page
   })
 }
+
+export const addCourse = (course) => {
+  return ({
+    type: actionType.ADD_COURSE,
+    selectedCourse: course
+  })
+}
+
+export const removeCourse = (index) => {
+  return ({
+    type: actionType.REMOVE_COURSE,
+    index: index
+  })
+}
