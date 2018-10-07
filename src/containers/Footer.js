@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { increasePage, decreasePage } from '../store/actions'
+import toastr from 'toastr'
 
 import Allergies from '../components/Allergies.js'
+
+import 'toastr/build/toastr.min.css';
 
 class Footer extends Component {
 
   nextPage = (page, isRequired, selectedCourses) => {
     if (isRequired) {
-      console.log('before', selectedCourses)
-      if (selectedCourses.length) {
-        console.log('after', selectedCourses)
+      if (this.checkRequiredCourses(selectedCourses, this.props.courseTypeSelected)) {
+        this.props.increasePage(page)
+      }
+      else {
+        toastr.info(`${this.props.courseTypes[this.props.courseTypeSelected].name} need at least 1 course selected`)
       }
     }
     else {
       this.props.increasePage(page)
     }
+  }
+
+  checkRequiredCourses = (selectedCourses, courseTypeSelected) => {
+    const result = selectedCourses.filter((course) => {
+      if (course.courseType.indexOf(courseTypeSelected) >= 0) {
+        return course
+      }
+      return null
+    })
+    return !!result.length
   }
 
   prevPage = (page) => {
