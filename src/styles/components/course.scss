@@ -1,9 +1,13 @@
 .course {
-  display: flex;
-  align-items: center;
   width: 100%;
-  height: 150px;
-  cursor: pointer;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    cursor: pointer;
+  }
 
   &:hover {
 
@@ -23,6 +27,11 @@
     font-size: 18px;
     margin-bottom: 0;
     transition: color 0.35s ease;
+
+    &--active {
+      color: $primary;
+    }
+
   }
 
   &__description {
