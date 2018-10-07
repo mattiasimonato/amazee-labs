@@ -1,8 +1,9 @@
 import * as actionType from './actionType'
 
 const initialState = {
-  courseTypes: ["Hors d'oeuvres", "Soup", "Fish", "Salad", "Main course", "Dessert"],
+  courseTypes: [{name: "Hors d'oeuvres", isRequired: false}, {name: "Soup", isRequired: false}, {name: "Fish", isRequired: false}, {name: "Salad", isRequired: false}, {name: "Main course", isRequired: true}, {name: "Dessert", isRequired: false}],
   courseTypeSelected: 0,
+  selectedCourses: [],
   courses: [
     {
         "courseType": [0],
@@ -280,6 +281,8 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
+    case actionType.INCREASE_PAGE : return {...state, courseTypeSelected: action.courseTypeSelected}
+    case actionType.DECREASE_PAGE : return {...state, courseTypeSelected: action.courseTypeSelected}
     default : return state;
   }
 }
