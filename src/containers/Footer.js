@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { increasePage, decreasePage, showConfirmedOrder, setConfirmedOrders } from '../store/actions'
+import { increasePage, decreasePage, setConfirmedOrders, setConfirmedOrdersAllergies } from '../store/actions'
 import toastr from 'toastr'
+import { compact, flatten, uniq } from 'lodash'
 
 import Allergies from '../components/Allergies.js'
 
@@ -53,14 +54,30 @@ class Footer extends Component {
   }
 
   confirmOrder = (courseTypes, selectedCourse) => {
+    this.createConfirmCourses(courseTypes, selectedCourse)
+    this.createConfirmCoursesAllergies(selectedCourse)
+  }
+
+  createConfirmCourses = (courseTypes, selectedCourse) => {
     const confirmedOrders = courseTypes.map(courseType => ({
       courseType: courseType.id,
       courseName: courseType.name,
       courses: selectedCourse.filter(course => course.courseType.includes(courseType.id))
     })).filter(extended => extended.courses.length);
     this.props.setConfirmedOrders(confirmedOrders)
-    this.props.showConfirmedOrder(true)
   }
+
+  createConfirmCoursesAllergies = (selectedCourse) => {
+    let confirmedAllergies = selectedCourse.map((item) => {
+      if (item.allery.length) return item.allery
+      return null
+    })
+    confirmedAllergies = compact(confirmedAllergies)
+    confirmedAllergies = flatten(confirmedAllergies)
+    confirmedAllergies = uniq(confirmedAllergies)
+    this.props.setConfirmedOrdersAllergies(confirmedAllergies)
+  }
+
 
   render() {
     const prevButton = this.renderPrevButton()
@@ -138,8 +155,8 @@ const mapDispatchToProps = dispatch => {
   return {
     increasePage: (page) => dispatch(increasePage(page)),
     decreasePage: (page) => dispatch(decreasePage(page)),
-    showConfirmedOrder: (status) => dispatch(showConfirmedOrder(status)),
-    setConfirmedOrders: (confirmedOrders) => dispatch(setConfirmedOrders(confirmedOrders))
+    setConfirmedOrders: (confirmedOrders) => dispatch(setConfirmedOrders(confirmedOrders)),
+    setConfirmedOrdersAllergies: (confirmedAllergies) => dispatch(setConfirmedOrdersAllergies(confirmedAllergies))
   }
 }
 

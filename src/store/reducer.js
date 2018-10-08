@@ -5,7 +5,7 @@ const initialState = {
   courseTypeSelected: 0,
   selectedCourses: [],
   confirmedOrders: [],
-  showConfirmedOrder: false,
+  confirmedAllergies: [],
   courses: [
     {
         "courseType": [0],
@@ -287,8 +287,8 @@ const reducer = (state = initialState, action) => {
     case actionType.DECREASE_PAGE : return {...state, courseTypeSelected: action.courseTypeSelected}
     case actionType.ADD_COURSE : return {...state, selectedCourses: [...state.selectedCourses, action.selectedCourse]}
     case actionType.REMOVE_COURSE : return {...state, selectedCourses: [...state.selectedCourses.slice(0, action.index), ...state.selectedCourses.slice(action.index + 1)]}
-    case actionType.SHOW_CONFIRMED_ORDERS : return {...state, showConfirmedOrder: action.status}
     case actionType.SET_CONFIRMED_ORDERS : return {...state, confirmedOrders: [...action.confirmedOrders]}
+    case actionType.SET_CONFIRMED_ORDERS_ALLERGIES : return {...state, confirmedAllergies: [...action.confirmedAllergies]}
     default : return state;
   }
 }

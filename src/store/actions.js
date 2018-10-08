@@ -28,16 +28,16 @@ export const removeCourse = (index) => {
   })
 }
 
-export const showConfirmedOrder = (status) => {
-  return ({
-    type: actionType.SHOW_CONFIRMED_ORDERS,
-    status: status
-  })
-}
-
 export const setConfirmedOrders = (confirmedOrders) => {
   return ({
     type: actionType.SET_CONFIRMED_ORDERS,
     confirmedOrders: confirmedOrders
+  })
+}
+
+export const setConfirmedOrdersAllergies = (confirmedAllergies) => {
+  return ({
+    type: actionType.SET_CONFIRMED_ORDERS_ALLERGIES,
+    confirmedAllergies: confirmedAllergies
   })
 }
