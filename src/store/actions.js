@@ -41,3 +41,17 @@ export const setConfirmedOrdersAllergies = (confirmedAllergies) => {
     confirmedAllergies: confirmedAllergies
   })
 }
+
+export const setCourses = (courses) => {
+  return ({
+    type: actionType.SET_COURSES,
+    courses: courses
+  })
+}
+
+export const setCourseTypes = (courseTypes) => {
+  return ({
+    type: actionType.SET_COURSE_TYPES,
+    courseTypes: courseTypes
+  })
+}

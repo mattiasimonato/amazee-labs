@@ -4,8 +4,6 @@ import { increasePage, decreasePage, setConfirmedOrders, setConfirmedOrdersAller
 import toastr from 'toastr'
 import { compact, flatten, uniq } from 'lodash'
 
-import Allergies from '../components/Allergies.js'
-
 import 'toastr/build/toastr.min.css';
 
 class Footer extends Component {
@@ -82,27 +80,27 @@ class Footer extends Component {
   render() {
     const prevButton = this.renderPrevButton()
     ?
-      <button className="btn btn-outline-secondary mr-2"
+      <button className="button"
       onClick={() => this.prevPage(this.props.courseTypeSelected - 1)}>
-        prev
+        prev page
       </button>
     :
       null
 
     const nextButton = this.renderNextButton()
     ?
-      <button className="btn  btn-outline-secondary"
+      <button className="button ml-2"
       onClick={() => this.nextPage(this.props.courseTypeSelected + 1,
       this.props.courseTypes[this.props.courseTypeSelected].isRequired,
       this.props.selectedCourses)}>
-        next
+        next page
       </button>
     :
       null
 
     const confirmButton = this.renderconfirmButton()
     ?
-      <button className="btn btn-primary button--primary button"
+      <button className="button button--primary ml-2"
       onClick={() => this.confirmOrder(this.props.courseTypes, this.props.selectedCourses)}>
         confirm order
       </button>
@@ -112,29 +110,28 @@ class Footer extends Component {
     return (
       <footer className="footer">
         <div className="container">
+          <div className="row justify-content-md-center">
+            <div className="col col-lg-8">
 
-          <div className="row align-items-center">
-            <div className="col-md-4">
-              <div className="footer__page">
-                <h5 className="footer__title">
-                  <span className="footer__title--primary">
-                    {this.props.courseTypeSelected + 1}
-                  </span>
-                  &nbsp;/ {this.props.courseTypes.length} -
-                  &nbsp;{this.props.courseTypes[this.props.courseTypeSelected].name}
-                </h5>
-              </div>
-              <div className="footer__allergies">
-                <span className="footer__allergies-title">* All the allergies of this page:</span>
-                <Allergies/>
-              </div>
-            </div>
-            <div className="col-md-4 text-center">
-              {confirmButton}
-            </div>
-            <div className="col-md-4 text-right">
-              {prevButton}
-              {nextButton}
+                <div className="row align-items-center">
+                  <div className="col-md-6">
+                    <div className="footer__page">
+                      <h5 className="footer__title">
+                        <span className="footer__title--primary">
+                          {this.props.courseTypeSelected + 1}
+                        </span>
+                        &nbsp;/ {this.props.courseTypes.length} -
+                        &nbsp;{this.props.courseTypes[this.props.courseTypeSelected].name}
+                      </h5>
+                    </div>
+                  </div>
+                  <div className="col-md-6 text-right">
+                    {prevButton}
+                    {nextButton}
+                    {confirmButton}
+                  </div>
+                </div>
+
             </div>
           </div>
         </div>

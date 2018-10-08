@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addCourse, removeCourse } from '../store/actions'
 
 import Allergies from '../components/Allergies.js'
+import SpiceLevel from '../components/SpiceLevel.js'
 import check from '../images/check.svg';
 import checkActive from '../images/check-active.svg';
 
@@ -28,8 +29,10 @@ class Course extends Component {
           <p className="course__description">
             {this.props.course.description}
           </p>
-
-          <Allergies allergies={this.props.course.allery}/>
+          <div className="course__info">
+            <Allergies allergies={this.props.course.allery}/>
+            <SpiceLevel level={this.props.course.spiceLevel}/>
+          </div>
         </div>
         <div className="course__wrap-icon">
           <img src={check} alt="check inactive" />
@@ -46,8 +49,10 @@ class Course extends Component {
           <p className="course__description">
             {this.props.course.description}
           </p>
-
-          <Allergies allergies={this.props.course.allery}/>
+          <div className="course__info">
+            <Allergies allergies={this.props.course.allery}/>
+            <SpiceLevel level={this.props.course.spiceLevel}/>
+          </div>
         </div>
         <div className="course__wrap-icon">
           <img src={checkActive} alt="check active" />

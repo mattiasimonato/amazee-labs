@@ -4,7 +4,6 @@ const ConfirmedOrder = (props) => {
 
   const content = props.orders ?
     props.orders.map((order) => {
-      console.log('dentro', props.courseName)
       return <li key={order.id} className="confirmed-order__item">{order.title}</li>
     })
   :
