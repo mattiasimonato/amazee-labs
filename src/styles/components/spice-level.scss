@@ -1,0 +1,20 @@
+.spice-level {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    display: inline-block;
+    margin-left: $baseline;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    width: $baseline * 3;
+    height: $baseline * 3;
+  }
+}
