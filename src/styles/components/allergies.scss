@@ -18,4 +18,14 @@
       }
     }
   }
+
+  &__wrap {
+    margin: $baseline * 5 0 $baseline * 10 0;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 13px;
+    color: $grey-light;
+  }
 }
