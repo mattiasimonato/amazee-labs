@@ -5,3 +5,38 @@ body {
   color: $grey;
   font-size: 14px;
 }
+
+.button {
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: $baseline * 1.5 $baseline * 3;
+  cursor: pointer;
+  border-color: $primary;
+  transition: 0.35s all ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      border-color: $primary;
+      box-shadow: none;
+      border-style: solid;
+    }
+
+
+    &:hover {
+      color: $primary;
+    }
+
+  &--primary {
+    background-color: $primary;
+    color: $grey;
+
+      &:hover {
+        color: $white;
+      }
+  }
+}
