@@ -52,17 +52,20 @@ class Footer extends Component {
   }
 
   confirmOrder = (courseTypes, selectedCourse) => {
-    this.createConfirmCourses(courseTypes, selectedCourse)
+    const confirmCourses = this.createConfirmCourses(courseTypes, selectedCourse)
+    const confirmedAllergies = this.createConfirmCoursesAllergies(selectedCourse)
     this.createConfirmCoursesAllergies(selectedCourse)
+    this.props.setConfirmedOrders(confirmCourses)
+    this.props.setConfirmedOrdersAllergies(confirmedAllergies)
+
   }
 
   createConfirmCourses = (courseTypes, selectedCourse) => {
-    const confirmedOrders = courseTypes.map(courseType => ({
+    return courseTypes.map(courseType => ({
       courseType: courseType.id,
       courseName: courseType.name,
       courses: selectedCourse.filter(course => course.courseType.includes(courseType.id))
     })).filter(extended => extended.courses.length);
-    this.props.setConfirmedOrders(confirmedOrders)
   }
 
   createConfirmCoursesAllergies = (selectedCourse) => {
@@ -73,7 +76,7 @@ class Footer extends Component {
     confirmedAllergies = compact(confirmedAllergies)
     confirmedAllergies = flatten(confirmedAllergies)
     confirmedAllergies = uniq(confirmedAllergies)
-    this.props.setConfirmedOrdersAllergies(confirmedAllergies)
+    return confirmedAllergies
   }
 
 

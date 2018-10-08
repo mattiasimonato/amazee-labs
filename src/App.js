@@ -16,8 +16,8 @@ class App extends Component {
 
   componentDidMount() {
     const courseTypes = this.fakeApiCallCourseTypes()
-    this.props.setCourseTypes(courseTypes)
     const courses = this.fakeApiCallCourses()
+    this.props.setCourseTypes(courseTypes)
     this.props.setCourses(courses)
   }
 
@@ -316,9 +316,7 @@ class App extends Component {
       return null
     })
 
-    const courseTitle = this.props.courseTypes[this.props.courseTypeSelected]
-
-    const allergies = this.props.confirmedOrders.length
+    const allergies = this.props.confirmedOrders.length && this.props.confirmedAllergies.length
     ? <div className="allergies__wrap">
         <h4 className="allergies__title">All the allergies of this page:</h4>
         <Allergies allergies={this.props.confirmedAllergies}/>
@@ -344,7 +342,7 @@ class App extends Component {
     ?
       <PageTitle mainTitle="Confirm your order"/>
     :
-      <PageTitle mainTitle="à la carte menu" courseTitle={courseTitle}/>
+      <PageTitle mainTitle="à la carte menu" courseTitle={this.props.courseTypes[this.props.courseTypeSelected]}/>
 
     const App = this.props.courses.length && this.props.courseTypes.length
     ?

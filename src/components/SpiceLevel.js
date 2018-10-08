@@ -13,13 +13,13 @@ const SpiceLevel = (props) => {
 
   const content = renderSpiceLevel(props.level).length
   ?
-  renderSpiceLevel(props.level).map((item) => {
-    return (
-      <li key={item} className="spice-level__item">
-        <img className="spice-level__image" src={pepper} alt="check inactive" />
-      </li>
-    )
-  })
+    renderSpiceLevel(props.level).map((item) => {
+      return (
+        <li key={item} className="spice-level__item">
+          <img className="spice-level__image" src={pepper} alt="check inactive" />
+        </li>
+      )
+    })
   :
     null
 
