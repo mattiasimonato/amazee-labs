@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { increasePage, decreasePage } from '../store/actions'
+import { increasePage, decreasePage, showConfirmedOrder, setConfirmedOrders } from '../store/actions'
 import toastr from 'toastr'
 
 import Allergies from '../components/Allergies.js'
@@ -47,6 +47,21 @@ class Footer extends Component {
     return true
   }
 
+  renderconfirmButton = () => {
+    if (this.props.courseTypeSelected === this.props.courseTypes.length - 1 && this.props.selectedCourses.length) return true
+    return false
+  }
+
+  confirmOrder = (courseTypes, selectedCourse) => {
+    const confirmedOrders = courseTypes.map(courseType => ({
+      courseType: courseType.id,
+      courseName: courseType.name,
+      courses: selectedCourse.filter(course => course.courseType.includes(courseType.id))
+    })).filter(extended => extended.courses.length);
+    this.props.setConfirmedOrders(confirmedOrders)
+    this.props.showConfirmedOrder(true)
+  }
+
   render() {
     const prevButton = this.renderPrevButton()
     ?
@@ -67,6 +82,15 @@ class Footer extends Component {
       </button>
     :
       null
+
+    const confirmButton = this.renderconfirmButton()
+    ?
+      <button className="btn btn-primary button--primary button"
+      onClick={() => this.confirmOrder(this.props.courseTypes, this.props.selectedCourses)}>
+        confirm order
+      </button>
+    :
+        null
 
     return (
       <footer className="footer">
@@ -89,9 +113,7 @@ class Footer extends Component {
               </div>
             </div>
             <div className="col-md-4 text-center">
-
-                <button className="btn btn-primary button--primary button" disabled>confirm</button>
-
+              {confirmButton}
             </div>
             <div className="col-md-4 text-right">
               {prevButton}
@@ -108,14 +130,16 @@ const mapStateToProps = state => {
   return {
     courseTypeSelected: state.courseTypeSelected,
     courseTypes: state.courseTypes,
-    selectedCourses: state.selectedCourses
+    selectedCourses: state.selectedCourses,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     increasePage: (page) => dispatch(increasePage(page)),
-    decreasePage: (page) => dispatch(decreasePage(page))
+    decreasePage: (page) => dispatch(decreasePage(page)),
+    showConfirmedOrder: (status) => dispatch(showConfirmedOrder(status)),
+    setConfirmedOrders: (confirmedOrders) => dispatch(setConfirmedOrders(confirmedOrders))
   }
 }
 

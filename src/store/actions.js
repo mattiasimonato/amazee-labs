@@ -27,3 +27,17 @@ export const removeCourse = (index) => {
     index: index
   })
 }
+
+export const showConfirmedOrder = (status) => {
+  return ({
+    type: actionType.SHOW_CONFIRMED_ORDERS,
+    status: status
+  })
+}
+
+export const setConfirmedOrders = (confirmedOrders) => {
+  return ({
+    type: actionType.SET_CONFIRMED_ORDERS,
+    confirmedOrders: confirmedOrders
+  })
+}

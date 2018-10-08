@@ -1,9 +1,11 @@
 import * as actionType from './actionType'
 
 const initialState = {
-  courseTypes: [{name: "Hors d'oeuvres", isRequired: false}, {name: "Soup", isRequired: false}, {name: "Fish", isRequired: false}, {name: "Salad", isRequired: false}, {name: "Main course", isRequired: true}, {name: "Dessert", isRequired: false}],
+  courseTypes: [{id: 0, name: "Hors d'oeuvres", isRequired: false}, {id: 1, name: "Soup", isRequired: false}, {id: 2, name: "Fish", isRequired: false}, {id: 3, name: "Salad", isRequired: false}, {id: 4, name: "Main course", isRequired: true}, {id: 5, name: "Dessert", isRequired: false}],
   courseTypeSelected: 0,
   selectedCourses: [],
+  confirmedOrders: [],
+  showConfirmedOrder: false,
   courses: [
     {
         "courseType": [0],
@@ -285,6 +287,8 @@ const reducer = (state = initialState, action) => {
     case actionType.DECREASE_PAGE : return {...state, courseTypeSelected: action.courseTypeSelected}
     case actionType.ADD_COURSE : return {...state, selectedCourses: [...state.selectedCourses, action.selectedCourse]}
     case actionType.REMOVE_COURSE : return {...state, selectedCourses: [...state.selectedCourses.slice(0, action.index), ...state.selectedCourses.slice(action.index + 1)]}
+    case actionType.SHOW_CONFIRMED_ORDERS : return {...state, showConfirmedOrder: action.status}
+    case actionType.SET_CONFIRMED_ORDERS : return {...state, confirmedOrders: [...action.confirmedOrders]}
     default : return state;
   }
 }
