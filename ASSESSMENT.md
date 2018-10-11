@@ -18,6 +18,8 @@ I've used SCSS and BEM as a naming convention, I've created a "variable.scss" an
 
 Enjoy :D
 
+## Demo
+[demo link](http://amazee-labs.mattiasimonato.com/)
 
 ## Installation
 * Run `cd amazee-labs`
